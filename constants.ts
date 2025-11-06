@@ -48,37 +48,37 @@ export const galleryImages: GalleryImage[] = [
 
 export const speakers: Speaker[] = [
     {
-        imgSrc: "/img/speakers/lucas-silva.jpg",
+        imgSrc: "/img/speakers/lucas-site-1.jpg",
         name: "Lucas Silva, CFP®",
         title: "Co-fundador, LS Educação",
         description: "Referência em educação financeira com mais de 100.000 alunos e anfitrião do Shark Experience.",
     },
     {
-        imgSrc: "/img/speakers/fernanda-morais.jpg",
+        imgSrc: "/img/speakers/fernanda-site-1.jpg",
         name: "Fernanda de Morais",
         title: "Especialista em Autoridade Digital",
         description: "Ajuda profissionais do mercado financeiro a construir uma presença digital que atrai clientes de alta renda.",
     },
     {
-        imgSrc: "/img/speakers/isabela-schnorr.jpg",
+        imgSrc: "/img/speakers/isa-site-1.jpg",
         name: "Isabela Schnorr",
         title: "Fundadora, TalentBox",
         description: "Headhunter especialista em mercado financeiro, conectando os melhores talentos às maiores instituições.",
     },
     {
-        imgSrc: "/img/speakers/tati-grecco.jpg",
+        imgSrc: "/img/speakers/tati-site-1.jpg",
         name: "Tati Grecco",
         title: "Sócia e Diretora, Itaú",
         description: "Líder com vasta experiência em gestão de ativos e negócios, comandando equipes de alta performance.",
     },
     {
-        imgSrc: "/img/speakers/germano-silva.jpg",
+        imgSrc: "/img/speakers/germano-site-1.jpg",
         name: "Germano Silva, CFP®",
         title: "Mentor e Advisor",
         description: "Ex-líder no Itaú e mentor de executivos, especialista em carreira e liderança no mercado financeiro.",
     },
      {
-        imgSrc: "/img/speakers/liao-yu-chieh.jpg",
+        imgSrc: "/img/speakers/liao-site-1.jpg",
         name: "Liao Yu Chieh, CFP®",
         title: "Diretor Executivo, BTG Pactual",
         description: "Educador financeiro, ex-C6 Bank e professor, com ampla experiência executiva nos maiores bancos do país.",
