@@ -75,8 +75,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, navLinks, onClose }) =>
                         </a>
                     ))}
                     <a 
-                        href="#pricing" 
-                        onClick={(e) => handleNavClick(e, '#pricing')} 
+                        href="https://ead.professorlucassilva.com.br/shopping?sku=20053"
                         className="mt-4 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary-600 px-6 h-12 text-base font-bold leading-normal tracking-[0.015em] text-white transition-transform hover:scale-105"
                     >
                         <span className="truncate">Quero Minha Vaga</span>

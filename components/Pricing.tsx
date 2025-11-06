@@ -13,7 +13,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
         const calculateSpotsSold = () => {
             const now = new Date();
             const event = new Date(eventDate);
-            
+
             const selloutDate = new Date(event);
             selloutDate.setDate(event.getDate() - 3);
 
@@ -30,11 +30,11 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
 
             const totalDuration = selloutDate.getTime() - salesStartDate.getTime();
             const elapsedDuration = now.getTime() - salesStartDate.getTime();
-            
+
             const initialSpotsSold = 15;
             const dynamicPercentage = (elapsedDuration / totalDuration) * (100 - initialSpotsSold);
             const totalSold = initialSpotsSold + dynamicPercentage;
-        
+
             return Math.min(100, totalSold);
         };
 
@@ -50,11 +50,11 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
     }, [eventDate]);
 
     const isSoldOut = spotsSold >= 100;
-    
+
     const cardClasses = "relative flex flex-col rounded-xl border-2 border-primary-500 bg-secondary-950 p-8 shadow-2xl shadow-primary-900/50";
 
     const buttonClasses = "mt-8 w-full rounded-full bg-primary-600 py-3 font-bold text-white transition-transform hover:scale-105";
-    
+
     const disabledButtonClasses = "mt-8 w-full rounded-full bg-secondary-800 py-3 font-bold text-secondary-500 cursor-not-allowed";
 
     return (
@@ -64,13 +64,13 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
                  <p className="text-4xl font-black text-white">{price}</p>
                  <span className="text-sm font-semibold text-secondary-400">/ Vaga</span>
             </div>
-            
+
             <div className="my-6 text-center">
                 <p className="animate-pulse font-semibold text-primary-400 mb-1">ÚLTIMAS VAGAS!</p>
                 <p className="font-bold text-red-400 uppercase tracking-wider">Mais de {Math.floor(spotsSold)}% preenchido!</p>
                 <div className="w-full bg-secondary-800 rounded-full h-2.5 mt-2 overflow-hidden" role="progressbar" aria-valuenow={spotsSold} aria-valuemin={0} aria-valuemax={100} aria-label="Vagas preenchidas">
-                    <div 
-                        className="bg-gradient-to-r from-red-500 to-orange-500 h-2.5 rounded-full transition-all duration-500 ease-out" 
+                    <div
+                        className="bg-gradient-to-r from-red-500 to-orange-500 h-2.5 rounded-full transition-all duration-500 ease-out"
                         style={{ width: `${spotsSold}%` }}
                     ></div>
                 </div>
@@ -84,12 +84,6 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
                     </li>
                 ))}
             </ul>
-            <button 
-                className={isSoldOut ? disabledButtonClasses : buttonClasses}
-                disabled={isSoldOut}
-            >
-                {isSoldOut ? 'ESGOTADO' : (buttonText || 'QUERO GARANTIR MEU LUGAR')}
-            </button>
         </div>
     );
 };

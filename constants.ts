@@ -34,51 +34,52 @@ export const features: Feature[] = [
 
 export const galleryImages: GalleryImage[] = [
     { 
-        src: "https://img.youtube.com/vi/_bKQXc_tS8s/maxresdefault.jpg", 
+        src: "https://img.youtube.com/vi/Q1VBylpQYYA/maxresdefault.jpg", 
         alt: "Aftermovie do evento Shark Experience", 
         className: "col-span-2 row-span-2",
         type: 'video',
-        videoId: '_bKQXc_tS8s'
+        videoId: 'Q1VBylpQYYA'
     },
-    { src: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2532&auto=format&fit=crop", alt: "Participantes interagindo e fazendo networking", className: "" },
-    { src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2670&auto=format&fit=crop", alt: "Participantes interagindo e fazendo networking", className: "" },
-    { src: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2662&auto=format&fit=crop", alt: "Vista aérea da plateia lotada no evento", className: "" },
-    { src: "https://images.unsplash.com/photo-1529070412935-6b59d57a44d4?q=80&w=2670&auto=format&fit=crop", alt: "Participantes em um workshop interativo", className: "" },
+    { src: "/img/foto-shark-exp-1.jpg", alt: "Momento do evento Shark Experience", className: "" },
+    { src: "/img/foto-shark-exp-3.jpg", alt: "Participantes do evento Shark Experience", className: "" },
+    { src: "/img/foto-shark-exp-4.jpg", alt: "Palestra no evento Shark Experience", className: "" },
+    { src: "/img/foto-shark-exp-6.jpg", alt: "Networking no evento Shark Experience", className: "" },
+    { src: "/img/foto-shark-exp-7.jpg", alt: "Momento especial do evento Shark Experience", className: "" },
 ];
 
 export const speakers: Speaker[] = [
     {
-        imgSrc: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2574&auto=format&fit=crop",
+        imgSrc: "/img/speakers/lucas-site-1.jpg",
         name: "Lucas Silva, CFP®",
         title: "Co-fundador, LS Educação",
         description: "Referência em educação financeira com mais de 100.000 alunos e anfitrião do Shark Experience.",
     },
     {
-        imgSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop",
+        imgSrc: "/img/speakers/fernanda-site-1.jpg",
         name: "Fernanda de Morais",
         title: "Especialista em Autoridade Digital",
         description: "Ajuda profissionais do mercado financeiro a construir uma presença digital que atrai clientes de alta renda.",
     },
     {
-        imgSrc: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2561&auto=format&fit=crop",
+        imgSrc: "/img/speakers/isa-site-1.jpg",
         name: "Isabela Schnorr",
         title: "Fundadora, TalentBox",
         description: "Headhunter especialista em mercado financeiro, conectando os melhores talentos às maiores instituições.",
     },
     {
-        imgSrc: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop",
+        imgSrc: "/img/speakers/tati-site-1.jpg",
         name: "Tati Grecco",
         title: "Sócia e Diretora, Itaú",
         description: "Líder com vasta experiência em gestão de ativos e negócios, comandando equipes de alta performance.",
     },
     {
-        imgSrc: "https://images.unsplash.com/photo-1590086782792-42dd2350140d?q=80&w=2574&auto=format&fit=crop",
+        imgSrc: "/img/speakers/germano-site-1.jpg",
         name: "Germano Silva, CFP®",
         title: "Mentor e Advisor",
         description: "Ex-líder no Itaú e mentor de executivos, especialista em carreira e liderança no mercado financeiro.",
     },
      {
-        imgSrc: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=2574&auto=format&fit=crop",
+        imgSrc: "/img/speakers/liao-site-1.jpg",
         name: "Liao Yu Chieh, CFP®",
         title: "Diretor Executivo, BTG Pactual",
         description: "Educador financeiro, ex-C6 Bank e professor, com ampla experiência executiva nos maiores bancos do país.",

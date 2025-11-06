@@ -32,11 +32,10 @@ const Hero: React.FC = () => {
                     autoPlay
                     playsInline
                     muted={isMuted}
-                    poster="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2670&auto=format&fit=crop"
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                 >
-                    <source src="https://cdn.pixabay.com/video/2024/02/27/201202-919531190_large.mp4" type="video/mp4" />
+                    <source src="/VIDEO SHARK EXPERIENCE 2024 - PARA LP.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -60,7 +59,7 @@ const Hero: React.FC = () => {
                 <p className="max-w-2xl text-base font-normal leading-normal text-secondary-200 sm:text-lg">
                     Imersão exclusiva com os gigantes do setor. Adquira em 1 dia o plano de ação, as estratégias e as conexões para multiplicar seus resultados.
                 </p>
-                <a className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary-600 px-6 h-12 text-base font-bold leading-normal tracking-[0.015em] text-white transition-transform hover:scale-105 animate-pulse" href="#pricing">
+                <a className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary-600 px-6 h-12 text-base font-bold leading-normal tracking-[0.015em] text-white transition-transform hover:scale-105 animate-pulse" href="https://ead.professorlucassilva.com.br/shopping?sku=20053">
                     <span className="truncate">QUERO ME TORNAR UM TUBARÃO</span>
                 </a>
             </div>
