@@ -84,6 +84,12 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
                     </li>
                 ))}
             </ul>
+            <button
+                className={isSoldOut ? disabledButtonClasses : buttonClasses}
+                disabled={isSoldOut}
+            >
+                {isSoldOut ? 'ESGOTADO' : (buttonText || 'QUERO GARANTIR MEU LUGAR')}
+            </button>
         </div>
     );
 };
