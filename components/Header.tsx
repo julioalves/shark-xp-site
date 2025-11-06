@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ navLinks, onMenuToggle }) => {
                     href="#pricing"
                     onClick={(e) => handleNavClick(e, '#pricing')}
                 >
-                    <span className="truncate">Garanta seu Ingresso</span>
+                    <span className="truncate">Quero Minha Vaga</span>
                 </a>
             </div>
             <button className="lg:hidden text-white" onClick={onMenuToggle} aria-label="Open menu">

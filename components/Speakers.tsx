@@ -12,7 +12,7 @@ const Speakers: React.FC = () => {
             <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3">
                 {speakers.map((speaker, index) => (
                     <div key={index} className="flex flex-col items-center gap-4 text-center">
-                        <img className="size-40 rounded-full object-cover border-2 border-primary-800" alt={`Foto de ${speaker.name}.`} src={speaker.imgSrc} />
+                        <img className="size-40 rounded-full object-cover border-2 border-primary-800" alt={`Foto de ${speaker.name}.`} src={speaker.imgSrc} loading="lazy" />
                         <div className="flex flex-col">
                             <h3 className="text-xl font-bold text-white">{speaker.name}</h3>
                             <p className="text-sm font-medium text-primary-400">{speaker.title}</p>

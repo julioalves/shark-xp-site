@@ -66,15 +66,14 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
             </div>
             
             <div className="my-6 text-center">
-                <p className="animate-pulse font-semibold text-primary-400 mb-1">Últimas unidades disponíveis!</p>
-                <p className="font-bold text-red-400 uppercase tracking-wider">Vagas Quase Esgotadas!</p>
+                <p className="animate-pulse font-semibold text-primary-400 mb-1">ÚLTIMAS VAGAS!</p>
+                <p className="font-bold text-red-400 uppercase tracking-wider">Mais de {Math.floor(spotsSold)}% preenchido!</p>
                 <div className="w-full bg-secondary-800 rounded-full h-2.5 mt-2 overflow-hidden" role="progressbar" aria-valuenow={spotsSold} aria-valuemin={0} aria-valuemax={100} aria-label="Vagas preenchidas">
                     <div 
                         className="bg-gradient-to-r from-red-500 to-orange-500 h-2.5 rounded-full transition-all duration-500 ease-out" 
                         style={{ width: `${spotsSold}%` }}
                     ></div>
                 </div>
-                <p className="text-xs text-secondary-300 mt-1">{Math.floor(spotsSold)}% preenchido</p>
             </div>
 
             <ul className="flex-grow space-y-3 text-secondary-300">
@@ -105,6 +104,7 @@ const Pricing: React.FC<PricingProps> = ({ eventDate }) => {
             <div className="text-center">
                 <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">Garanta Seu Lugar no Próximo Nível</h2>
                 <p className="mx-auto mt-2 max-w-2xl text-base font-normal leading-normal text-secondary-300">O último lote de ingressos está disponível por tempo limitado. Garanta sua vaga antes que esgote!</p>
+                <p className="mx-auto mt-2 max-w-2xl text-base font-normal leading-normal text-secondary-300">Evento presencial para um grupo seleto de profissionais ambiciosos que querem um lugar entre os grandes.</p>
             </div>
             <div className="grid grid-cols-1 gap-8 md:max-w-md mx-auto">
                 {pricingPlans.map((plan, index) => (

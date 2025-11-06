@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from '../types';
 import Logo from './Logo';
 
@@ -10,7 +10,19 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, navLinks, onClose }) => {
-    if (!isOpen) return null;
+    const [shouldRender, setShouldRender] = useState(isOpen);
+
+    useEffect(() => {
+        if (isOpen) {
+            setShouldRender(true);
+        }
+    }, [isOpen]);
+
+    const handleAnimationEnd = () => {
+        if (!isOpen) {
+            setShouldRender(false);
+        }
+    };
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
@@ -18,6 +30,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, navLinks, onClose }) =>
         const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
         
+        // Timeout ensures the menu close animation starts before scrolling
         setTimeout(() => {
             if (targetElement) {
                 const headerElement = document.querySelector('header');
@@ -29,11 +42,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, navLinks, onClose }) =>
                     behavior: 'smooth'
                 });
             }
-        }, 100);
+        }, 300);
     };
 
+    if (!shouldRender) {
+        return null;
+    }
+
     return (
-        <div className="fixed inset-0 z-50 bg-background-dark lg:hidden" role="dialog" aria-modal="true">
+        <div 
+            className={`fixed inset-0 z-50 bg-background-dark lg:hidden ${isOpen ? 'animate-slideInRight' : 'animate-slideOutRight'}`}
+            onAnimationEnd={handleAnimationEnd}
+            role="dialog" 
+            aria-modal="true"
+        >
             <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between border-b border-secondary-900 px-4 py-3">
                     <Logo />
@@ -57,7 +79,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, navLinks, onClose }) =>
                         onClick={(e) => handleNavClick(e, '#pricing')} 
                         className="mt-4 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary-600 px-6 h-12 text-base font-bold leading-normal tracking-[0.015em] text-white transition-transform hover:scale-105"
                     >
-                        <span className="truncate">Garanta seu Ingresso</span>
+                        <span className="truncate">Quero Minha Vaga</span>
                     </a>
                 </nav>
             </div>

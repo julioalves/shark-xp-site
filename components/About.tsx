@@ -17,9 +17,9 @@ const About: React.FC = () => {
     return (
         <section className="flex flex-col gap-10 px-4 py-16 sm:py-24" id="what-is-it">
             <div className="flex flex-col gap-4 text-center">
-                <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">O Que Você Vai Levar Deste Evento</h2>
+                <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">Sua Carreira, 10x Mais Rápida</h2>
                 <p className="mx-auto max-w-3xl text-base font-normal leading-normal text-secondary-300">
-                    Mais do que palestras, o Shark Experience entrega ferramentas práticas e direcionamento para você aplicar e acelerar sua carreira no dia seguinte.
+                    O Shark Experience não é sobre palestras. É sobre entregar um arsenal de ferramentas, conexões e estratégias para você dominar o mercado.
                 </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

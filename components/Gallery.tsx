@@ -29,6 +29,7 @@ const Gallery: React.FC<GalleryProps> = ({ onImageClick }) => {
                             alt={image.alt} 
                             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" 
                             src={image.src} 
+                            loading="lazy"
                         />
                          {image.type === 'video' && (
                             <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity duration-300 group-hover:bg-black/50">

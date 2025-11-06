@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 
 const Hero: React.FC = () => {
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
     const [isMuted, setIsMuted] = useState(true);
     const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -29,6 +29,7 @@ const Hero: React.FC = () => {
                 <video
                     ref={videoRef}
                     loop
+                    autoPlay
                     playsInline
                     muted={isMuted}
                     poster="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2670&auto=format&fit=crop"
@@ -54,13 +55,13 @@ const Hero: React.FC = () => {
             <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-6 px-4">
                 <div aria-hidden="true" className="absolute -top-32 left-1/2 -translate-x-1/2 w-[200%] max-w-[800px] aspect-square rounded-full bg-primary-700/20 blur-3xl"></div>
                 <h1 className="text-4xl font-black leading-tight tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                    O Encontro de <span className="text-primary-400">TUBARÕES</span> do Mercado Financeiro
+                    Transforme-se em um <span className="text-primary-400">Tubarão do Mercado Financeiro</span>
                 </h1>
                 <p className="max-w-2xl text-base font-normal leading-normal text-secondary-200 sm:text-lg">
-                    Acelere sua carreira e domine as estratégias dos maiores especialistas do país em 3 dias de imersão total para se tornar um profissional de alta performance.
+                    Imersão exclusiva com os gigantes do setor. Adquira em 1 dia o plano de ação, as estratégias e as conexões para multiplicar seus resultados.
                 </p>
                 <a className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary-600 px-6 h-12 text-base font-bold leading-normal tracking-[0.015em] text-white transition-transform hover:scale-105 animate-pulse" href="#pricing">
-                    <span className="truncate">QUERO GARANTIR MEU LUGAR</span>
+                    <span className="truncate">QUERO ME TORNAR UM TUBARÃO</span>
                 </a>
             </div>
 

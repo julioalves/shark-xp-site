@@ -11,7 +11,7 @@ const Testimonials: React.FC = () => {
                     <div key={index} className="flex flex-col gap-4 rounded-xl border border-secondary-800 bg-secondary-950 p-8">
                         <p className="text-lg italic text-secondary-300">{testimonial.quote}</p>
                         <div className="mt-2 flex items-center gap-4">
-                            <img className="size-12 rounded-full object-cover" alt={`Headshot of ${testimonial.author.name}.`} src={testimonial.author.imgSrc} />
+                            <img className="size-12 rounded-full object-cover" alt={`Headshot of ${testimonial.author.name}.`} src={testimonial.author.imgSrc} loading="lazy" />
                             <div>
                                 <p className="font-bold text-white">{testimonial.author.name}</p>
                                 <p className="text-sm text-secondary-400">{testimonial.author.title}</p>

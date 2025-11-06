@@ -13,22 +13,22 @@ export const features: Feature[] = [
     {
         icon: "checklist",
         title: "Plano de Ação de 90 Dias",
-        description: "Saia com um plano de ação claro para sua carreira e certificações, pronto para executar e gerar resultados em tempo recorde.",
+        description: "Saia com um plano de ação para turbinar sua carreira, conquistar uma promoção e gerar resultados em tempo recorde.",
     },
     {
         icon: "groups",
-        title: "Networking de Alto Nível",
-        description: "Participe de dinâmicas de networking guiado e receba um checklist prático para construir conexões valiosas com os tubarões do mercado.",
+        title: "Conexões de Milhões",
+        description: "Conecte-se com nomes que decidem o futuro do setor. Em minutos, você estará em contato direto com quem pode transformar sua trajetória.",
     },
     {
         icon: "map",
         title: "Mapa de Oportunidades",
-        description: "Receba um mapa completo com os cargos, áreas e trilhas de carreira em alta no mercado financeiro para 2025 e 2026.",
+        description: "Receba o mapa dos cargos e áreas mais desejados para 2026 e saia na frente da concorrência.",
     },
     {
         icon: "model_training",
-        title: "Conteúdo Prático e Real",
-        description: "Aprenda com estudos de caso reais de quem atua e gera resultados diários em grandes bancos e corretoras.",
+        title: "Estratégias de Gigantes",
+        description: "Aprenda os métodos e estudos de caso de quem movimenta bilhões no mercado e lidera as maiores instituições financeiras.",
     },
 ];
 
@@ -95,16 +95,17 @@ export const pricingPlans: PricingPlan[] = [
             "Kit de boas-vindas exclusivo",
             "Certificado de participação digital",
             "Acesso ao lounge de networking",
-            "Almoço VIP com palestrantes"
+            "Almoço VIP com palestrantes",
+            "Entrada para o círculo VIP de networking"
         ],
         isPopular: true,
-        buttonText: "QUERO GARANTIR MINHA VAGA",
+        buttonText: "QUERO ME TORNAR UM TUBARÃO",
     },
 ];
 
 export const testimonials: Testimonial[] = [
     {
-        quote: "\"Em 30 dias de mentoria com o Lucas, fui promovida e recebi um aumento de 30% no meu salário. É um divisor de águas, você começa a enxergar o que ninguém vê e se posicionar de forma única.\"",
+        quote: "\"Em 30 dias com o Lucas, não só tive clareza, mas fui promovida com 30% de aumento. Nunca mais fui ignorada no mercado. É um divisor de águas!\"",
         author: {
             imgSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2564&auto=format&fit=crop",
             name: "Ana Clara Leite",
@@ -112,7 +113,7 @@ export const testimonials: Testimonial[] = [
         },
     },
     {
-        quote: "\"O SharkPRO foi fundamental para minha aprovação no CFP® e para a minha transição de carreira. As aulas e o networking com a comunidade foram essenciais para alcançar meu cargo atual na XP.\"",
+        quote: "\"O networking no SharkPRO abriu as portas para minha transição de carreira. O conteúdo foi decisivo para a aprovação no CFP® e para conquistar meu cargo na XP Inc. hoje.\"",
         author: {
             imgSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop",
             name: "Rafael Bittencourt",
