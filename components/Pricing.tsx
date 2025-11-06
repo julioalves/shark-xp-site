@@ -27,7 +27,6 @@ const PricingCard: React.FC<PricingPlan> = ({ name, price, features, isPopular, 
                     </li>
                 ))}
             </ul>
-            <button className={buttonClasses}>{buttonText || 'QUERO GARANTIR MEU LUGAR'}</button>
         </div>
     );
 };

@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ navLinks, onMenuToggle }) => {
                 <a 
                     className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary-600 px-4 h-10 text-sm font-bold leading-normal tracking-[0.015em] text-white transition-transform hover:scale-105" 
                     href="#pricing"
-                    onClick={(e) => handleNavClick(e, '#pricing')}
+                    onClick={(e) => handleNavClick(e, 'https://ead.professorlucassilva.com.br/shopping?sku=20053')}
                 >
                     <span className="truncate">Garanta seu Ingresso</span>
                 </a>
