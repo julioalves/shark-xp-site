@@ -1,15 +1,56 @@
-import React from 'react';
+
+import React, { useState, useRef } from 'react';
 
 const Hero: React.FC = () => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const togglePlay = () => {
+        if (videoRef.current) {
+            if (videoRef.current.paused) {
+                videoRef.current.play().catch(error => {
+                    console.error("Video play failed:", error);
+                    setIsPlaying(false);
+                });
+            } else {
+                videoRef.current.pause();
+            }
+        }
+    };
+
+    const toggleMute = () => {
+        setIsMuted(prev => !prev);
+    };
+
     return (
         <section className="relative flex min-h-[calc(100vh-64px)] w-full items-center justify-center overflow-hidden py-20 text-center">
             <div className="video-container">
-                <video autoPlay loop muted playsInline poster="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2670&auto=format&fit=crop">
+                <video
+                    ref={videoRef}
+                    loop
+                    playsInline
+                    muted={isMuted}
+                    poster="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2670&auto=format&fit=crop"
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                >
                     <source src="https://cdn.pixabay.com/video/2024/02/27/201202-919531190_large.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div className="video-overlay"></div>
+
+            {!isPlaying && (
+                <button
+                    onClick={togglePlay}
+                    className="absolute z-20 flex items-center justify-center size-24 bg-white/20 rounded-full backdrop-blur-sm transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    aria-label="Play video"
+                >
+                    <span className="material-symbols-outlined text-white text-7xl">play_arrow</span>
+                </button>
+            )}
+
             <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-6 px-4">
                 <div aria-hidden="true" className="absolute -top-32 left-1/2 -translate-x-1/2 w-[200%] max-w-[800px] aspect-square rounded-full bg-primary-700/20 blur-3xl"></div>
                 <h1 className="text-4xl font-black leading-tight tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
@@ -21,6 +62,23 @@ const Hero: React.FC = () => {
                 <a className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary-600 px-6 h-12 text-base font-bold leading-normal tracking-[0.015em] text-white transition-transform hover:scale-105 animate-pulse" href="#pricing">
                     <span className="truncate">QUERO GARANTIR MEU LUGAR</span>
                 </a>
+            </div>
+
+            <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 rounded-full bg-black/30 p-2 backdrop-blur-sm">
+                <button
+                    onClick={togglePlay}
+                    className="flex items-center justify-center size-10 rounded-full text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    aria-label={isPlaying ? "Pause video" : "Play video"}
+                >
+                    <span className="material-symbols-outlined">{isPlaying ? 'pause' : 'play_arrow'}</span>
+                </button>
+                <button
+                    onClick={toggleMute}
+                    className="flex items-center justify-center size-10 rounded-full text-white transition-colors hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-primary-400"
+                    aria-label={isMuted ? "Unmute video" : "Mute video"}
+                >
+                    <span className="material-symbols-outlined">{isMuted ? 'volume_off' : 'volume_up'}</span>
+                </button>
             </div>
         </section>
     );
