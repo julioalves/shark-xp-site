@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Gallery from './components/Gallery';
 import Speakers from './components/Speakers';
+import Location from './components/Location';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import FaqSection from './components/FaqSection';
@@ -145,7 +146,8 @@ const App: React.FC = () => {
                     <About />
                     <Gallery onImageClick={openModal} />
                     <Speakers />
-                    <Pricing />
+                    <Location />
+                    <Pricing eventDate={eventDate} />
                     <Testimonials />
                     <FaqSection />
                 </div>

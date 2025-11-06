@@ -1,48 +1,114 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { pricingPlans } from '../constants';
 import { PricingPlan } from '../types';
 
-const PricingCard: React.FC<PricingPlan> = ({ name, price, features, isPopular, buttonText }) => {
-    const cardClasses = isPopular
-        ? "relative flex flex-col rounded-xl border-2 border-primary-500 bg-secondary-950 p-8 shadow-2xl shadow-primary-900/50 transform md:scale-105"
-        : "flex flex-col rounded-xl border border-secondary-800 bg-secondary-950 p-8 transition-transform hover:scale-105";
+interface PricingCardProps extends PricingPlan {
+    eventDate: string;
+}
 
-    const buttonClasses = isPopular
-        ? "mt-8 w-full rounded-full bg-primary-600 py-3 font-bold text-white transition-transform hover:scale-110 animate-pulse"
-        : "mt-8 w-full rounded-full bg-primary-900 py-3 font-bold text-primary-200 transition-colors hover:bg-primary-800";
+const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, buttonText, eventDate }) => {
+    const [spotsSold, setSpotsSold] = useState(15);
+
+    useEffect(() => {
+        const calculateSpotsSold = () => {
+            const now = new Date();
+            const event = new Date(eventDate);
+            
+            const selloutDate = new Date(event);
+            selloutDate.setDate(event.getDate() - 3);
+
+            const salesStartDate = new Date(event);
+            salesStartDate.setDate(event.getDate() - 90);
+
+            if (now >= selloutDate) {
+                return 100;
+            }
+
+            if (now <= salesStartDate) {
+                return 15; // Start with 15% sold
+            }
+
+            const totalDuration = selloutDate.getTime() - salesStartDate.getTime();
+            const elapsedDuration = now.getTime() - salesStartDate.getTime();
+            
+            const initialSpotsSold = 15;
+            const dynamicPercentage = (elapsedDuration / totalDuration) * (100 - initialSpotsSold);
+            const totalSold = initialSpotsSold + dynamicPercentage;
+        
+            return Math.min(100, totalSold);
+        };
+
+        const updatePercentage = () => {
+             setSpotsSold(calculateSpotsSold());
+        }
+
+        updatePercentage();
+        const interval = setInterval(updatePercentage, 60000); // Update every minute
+
+        return () => clearInterval(interval);
+
+    }, [eventDate]);
+
+    const isSoldOut = spotsSold >= 100;
+    
+    const cardClasses = "relative flex flex-col rounded-xl border-2 border-primary-500 bg-secondary-950 p-8 shadow-2xl shadow-primary-900/50";
+
+    const buttonClasses = "mt-8 w-full rounded-full bg-primary-600 py-3 font-bold text-white transition-transform hover:scale-105";
+    
+    const disabledButtonClasses = "mt-8 w-full rounded-full bg-secondary-800 py-3 font-bold text-secondary-500 cursor-not-allowed";
 
     return (
         <div className={cardClasses}>
-            {isPopular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary-600 px-4 py-1 text-xs font-bold uppercase text-white popular-badge">Mais Popular</div>}
-            <h3 className="text-xl font-bold text-white">{name}</h3>
-            <div className="mt-2 flex items-baseline gap-2">
+            <h3 className="text-xl font-bold text-white text-center">{name}</h3>
+            <div className="mt-2 flex items-baseline justify-center gap-2">
                  <p className="text-4xl font-black text-white">{price}</p>
-                 {price !== "Sob Consulta" && <span className="text-sm font-semibold text-secondary-400">/ 2º Lote</span>}
+                 <span className="text-sm font-semibold text-secondary-400">/ Vaga</span>
             </div>
-            <ul className="mt-6 flex-grow space-y-3 text-secondary-300">
+            
+            <div className="my-6 text-center">
+                <p className="font-bold text-red-400 uppercase tracking-wider">Vagas Quase Esgotadas!</p>
+                <div className="w-full bg-secondary-800 rounded-full h-2.5 mt-2 overflow-hidden" role="progressbar" aria-valuenow={spotsSold} aria-valuemin={0} aria-valuemax={100} aria-label="Vagas preenchidas">
+                    <div 
+                        className="bg-gradient-to-r from-red-500 to-orange-500 h-2.5 rounded-full transition-all duration-500 ease-out" 
+                        style={{ width: `${spotsSold}%` }}
+                    ></div>
+                </div>
+                <p className="text-xs text-secondary-300 mt-1">{Math.floor(spotsSold)}% preenchido</p>
+            </div>
+
+            <ul className="flex-grow space-y-3 text-secondary-300">
                 {features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-sm text-primary-400">check_circle</span>{feature}
+                    <li key={index} className="flex items-start gap-3">
+                        <span className="material-symbols-outlined text-sm text-primary-400 mt-1">check_circle</span>
+                        <span>{feature}</span>
                     </li>
                 ))}
             </ul>
-            <button className={buttonClasses}>{buttonText || 'QUERO GARANTIR MEU LUGAR'}</button>
+            <button 
+                className={isSoldOut ? disabledButtonClasses : buttonClasses}
+                disabled={isSoldOut}
+            >
+                {isSoldOut ? 'ESGOTADO' : (buttonText || 'QUERO GARANTIR MEU LUGAR')}
+            </button>
         </div>
     );
 };
 
+interface PricingProps {
+    eventDate: string;
+}
 
-const Pricing: React.FC = () => {
+const Pricing: React.FC<PricingProps> = ({ eventDate }) => {
     return (
         <section className="flex flex-col gap-8 px-4 py-16 sm:py-24" id="pricing">
             <div className="text-center">
                 <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">Garanta Seu Lugar no Próximo Nível</h2>
-                <p className="mx-auto mt-2 max-w-2xl text-base font-normal leading-normal text-secondary-300">Escolha o ingresso que mais se alinha ao seu objetivo. O 2º Lote está disponível por tempo limitado. Aja agora antes da virada de preço!</p>
+                <p className="mx-auto mt-2 max-w-2xl text-base font-normal leading-normal text-secondary-300">O último lote de ingressos está disponível por tempo limitado. Garanta sua vaga antes que esgote!</p>
             </div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 md:max-w-md mx-auto">
                 {pricingPlans.map((plan, index) => (
-                    <PricingCard key={index} {...plan} />
+                    <PricingCard key={index} {...plan} eventDate={eventDate} />
                 ))}
             </div>
         </section>

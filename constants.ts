@@ -3,6 +3,7 @@ import { NavLink, Feature, GalleryImage, Speaker, PricingPlan, Testimonial, FaqI
 export const navLinks: NavLink[] = [
     { href: "#what-is-it", label: "O Evento" },
     { href: "#speakers", label: "Palestrantes" },
+    { href: "#location", label: "Local" },
     { href: "#pricing", label: "Ingressos" },
     { href: "#testimonials", label: "Depoimentos" },
     { href: "#faq", label: "FAQ" },
@@ -12,17 +13,17 @@ export const features: Feature[] = [
     {
         icon: "checklist",
         title: "Plano de Ação de 90 Dias",
-        description: "Saia com um plano de carreira e certificações claro e prático para executar e ter resultados em tempo recorde.",
+        description: "Saia com um plano de ação claro para sua carreira e certificações, pronto para executar e gerar resultados em tempo recorde.",
     },
     {
         icon: "groups",
         title: "Networking de Alto Nível",
-        description: "Participe de dinâmicas de networking guiado para construir conexões valiosas com os tubarões do mercado.",
+        description: "Participe de dinâmicas de networking guiado e receba um checklist prático para construir conexões valiosas com os tubarões do mercado.",
     },
     {
         icon: "map",
         title: "Mapa de Oportunidades",
-        description: "Receba um mapa completo com cargos, áreas e trilhas de carreira em alta no mercado financeiro para 2025 e 2026.",
+        description: "Receba um mapa completo com os cargos, áreas e trilhas de carreira em alta no mercado financeiro para 2025 e 2026.",
     },
     {
         icon: "model_training",
@@ -86,37 +87,19 @@ export const speakers: Speaker[] = [
 
 export const pricingPlans: PricingPlan[] = [
     {
-        name: "SILVER",
-        price: "R$1.997",
+        name: "INGRESSO SHARK",
+        price: "R$ 497",
         features: [
-            "Acesso ao evento presencial",
-            "Assento no setor Silver",
-            "Acesso à gravação por 1 ano",
-            "Acesso à feira de negócios",
-        ],
-        isPopular: false,
-    },
-    {
-        name: "GOLD",
-        price: "R$2.497",
-        features: [
-            "Todos os benefícios do Silver",
-            "Assento no setor Gold",
-            "Kit de boas-vindas",
-            "Entrada antecipada no evento",
+            "Acesso completo ao evento presencial",
+            "Assento garantido em setor premium",
+            "Kit de boas-vindas exclusivo",
+            "Acesso à gravação completa por 1 ano",
+            "Certificado de participação digital",
+            "Acesso ao lounge de networking",
+            "Almoço VIP com palestrantes"
         ],
         isPopular: true,
-    },
-    {
-        name: "DIAMOND",
-        price: "R$3.497",
-        features: [
-            "Todos os benefícios do Gold",
-            "Assento no setor Diamond",
-            "Almoço com palestrantes e convidados",
-            "Acesso ao Lounge Diamond",
-        ],
-        isPopular: false,
+        buttonText: "QUERO GARANTIR MINHA VAGA",
     },
 ];
 
@@ -142,7 +125,7 @@ export const testimonials: Testimonial[] = [
 export const faqItems: FaqItem[] = [
     {
         question: "Quando e onde será o Shark Experience?",
-        answer: "O evento acontecerá no dia 29 de Novembro de 2025, em São Paulo - SP. O local exato será o WTC Events Center, um dos espaços mais prestigiados da cidade.",
+        answer: "O evento acontecerá no dia 29 de Novembro de 2025, em São Paulo - SP. O local será na Fundação Casper Libero, no coração da Avenida Paulista, um dos endereços mais icônicos do país.",
         defaultOpen: true,
     },
     {
@@ -155,6 +138,6 @@ export const faqItems: FaqItem[] = [
     },
     {
         question: "Terei acesso às gravações?",
-        answer: "Sim, todos os ingressos (Silver, Gold e Diamond) dão acesso à gravação completa do evento por 1 ano, para você rever todo o conteúdo quando quiser.",
+        answer: "Sim, o ingresso dá acesso à gravação completa do evento por 1 ano, para você rever todo o conteúdo quando quiser.",
     },
 ];
