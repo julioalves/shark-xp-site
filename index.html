@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shark Experience - Encontro de Tubarões do Mercado Financeiro</title>
+    <meta name="description" content="O Encontro de Tubarões do Mercado Financeiro. Acelere sua carreira com os maiores especialistas do país em 3 dias de imersão. Últimos ingressos.">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --primary-50: #f0f6ff;
+                --primary-100: #e0edff;
+                --primary-200: #c8dfff;
+                --primary-300: #a2c7ff;
+                --primary-400: #78a5ff;
+                --primary-500: #4f7eff;
+                --primary-600: #3359fd;
+                --primary-700: #2443e7;
+                --primary-800: #1d36b8;
+                --primary-900: #1b308f;
+                --primary-950: #111c56;
+                --secondary-50: #f2f2f7;
+                --secondary-100: #e4e5ee;
+                --secondary-200: #cbd0e2;
+                --secondary-300: #abb3d0;
+                --secondary-400: #8892ba;
+                --secondary-500: #6b76a3;
+                --secondary-600: #57618f;
+                --secondary-700: #494f78;
+                --secondary-800: #3c4161;
+                --secondary-900: #32364e;
+                --secondary-950: #1f2230;
+                --background-light: #fefbff;
+                --background-dark: #121318;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(18, 19, 24, 0.4) 0%, rgba(18, 19, 24, 0.8) 70%, rgba(18, 19, 24, 1) 100%);
+            z-index: 1;
+        }
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+        .group-open\:animate-fadeIn, .modal-enter, .countdown-enter {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .popular-badge {
+            animation: pulse-badge 2s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-badge {
+            0%, 100% {
+                transform: scale(1) translateX(-50%);
+                box-shadow: 0 0 0 0 rgba(var(--primary-500-rgb), 0.7);
+            }
+            50% {
+                transform: scale(1.05) translateX(-50%);
+                box-shadow: 0 0 10px 5px rgba(var(--primary-500-rgb), 0);
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": { 50: 'var(--primary-50)', 100: 'var(--primary-100)', 200: 'var(--primary-200)', 300: 'var(--primary-300)', 400: 'var(--primary-400)', 500: 'var(--primary-500)', 600: 'var(--primary-600)', 700: 'var(--primary-700)', 800: 'var(--primary-800)', 900: 'var(--primary-900)', 950: 'var(--primary-950)', },
+                        "secondary": { 50: 'var(--secondary-50)', 100: 'var(--secondary-100)', 200: 'var(--secondary-200)', 300: 'var(--secondary-300)', 400: 'var(--secondary-400)', 500: 'var(--secondary-500)', 600: 'var(--secondary-600)', 700: 'var(--secondary-700)', 800: 'var(--secondary-800)', 900: 'var(--secondary-900)', 950: 'var(--secondary-950)', },
+                        "background-light": "var(--background-light)",
+                        "background-dark": "var(--background-dark)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                    },
+                },
+            },
+        }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+<body class="bg-background-dark font-display text-white">
+    <div id="root"></div>
+</body>
+</html>
