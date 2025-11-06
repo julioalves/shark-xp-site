@@ -93,7 +93,6 @@ export const pricingPlans: PricingPlan[] = [
             "Acesso completo ao evento presencial",
             "Assento garantido em setor premium",
             "Kit de boas-vindas exclusivo",
-            "Acesso à gravação completa por 1 ano",
             "Certificado de participação digital",
             "Acesso ao lounge de networking",
             "Almoço VIP com palestrantes"
@@ -135,9 +134,5 @@ export const faqItems: FaqItem[] = [
     {
         question: "Posso parcelar o valor do ingresso?",
         answer: "Sim! Você pode parcelar sua inscrição em até 12x no cartão de crédito. Também aceitamos PIX como forma de pagamento.",
-    },
-    {
-        question: "Terei acesso às gravações?",
-        answer: "Sim, o ingresso dá acesso à gravação completa do evento por 1 ano, para você rever todo o conteúdo quando quiser.",
     },
 ];
