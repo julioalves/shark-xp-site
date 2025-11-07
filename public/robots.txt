@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sharkexperience.com.br/sitemap.xml

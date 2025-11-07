@@ -43,13 +43,27 @@ const App: React.FC = () => {
                 <Hero />
                 <div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-10">
                     <Countdown targetDate={eventDate} />
-                    <About />
-                    <Gallery onImageClick={openModal} />
-                    <Speakers />
-                    <Location />
-                    <Pricing eventDate={eventDate} />
-                    <Testimonials />
-                    <FaqSection />
+                    <div id="evento">
+                        <About />
+                    </div>
+                    <div id="galeria">
+                        <Gallery onImageClick={openModal} />
+                    </div>
+                    <div id="palestrantes">
+                        <Speakers />
+                    </div>
+                    <div id="local">
+                        <Location />
+                    </div>
+                    <div id="ingressos">
+                        <Pricing eventDate={eventDate} />
+                    </div >
+                    <div id="depoimentos">
+                        <Testimonials />
+                    </div>
+                    <div id="faq">
+                        <FaqSection />
+                    </div>
                 </div>
             </main>
             <Footer />

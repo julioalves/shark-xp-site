@@ -1,12 +1,12 @@
 import { NavLink, Feature, GalleryImage, Speaker, PricingPlan, Testimonial, FaqItem } from './types';
 
 export const navLinks: NavLink[] = [
-    { href: "#what-is-it", label: "O Evento" },
-    { href: "#speakers", label: "Palestrantes" },
-    { href: "#location", label: "Local" },
-    { href: "#pricing", label: "Ingressos" },
-    { href: "#testimonials", label: "Depoimentos" },
-    { href: "#faq", label: "FAQ" },
+    { href: "/evento", label: "O Evento" },
+    { href: "/palestrantes", label: "Palestrantes" },
+    { href: "/local", label: "Local" },
+    { href: "/ingressos", label: "Ingressos" },
+    { href: "/depoimentos", label: "Depoimentos" },
+    { href: "/faq", label: "FAQ" },
 ];
 
 export const features: Feature[] = [
@@ -97,7 +97,6 @@ export const pricingPlans: PricingPlan[] = [
             "Kit de boas-vindas exclusivo",
             "Certificado de participação digital",
             "Acesso ao lounge de networking",
-            "Almoço VIP com palestrantes",
             "Entrada para o círculo VIP de networking"
         ],
         isPopular: true,
