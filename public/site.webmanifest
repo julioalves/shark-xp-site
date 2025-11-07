@@ -2,7 +2,7 @@
   "name": "Shark Experience",
   "short_name": "SharkXP",
   "description": "O maior encontro de Tubarões do Mercado Financeiro",
-  "start_url": "/",
+  "start_url": "https://shark-xp.professorlucassilva.com.br/",
   "display": "standalone",
   "background_color": "#111c56",
   "theme_color": "#4f7eff",
