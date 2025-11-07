@@ -87,9 +87,15 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
             <button
                 className={isSoldOut ? disabledButtonClasses : buttonClasses}
                 disabled={isSoldOut}
+                onClick={() => {
+                    if (!isSoldOut) {
+                        window.location.href = 'https://ead.professorlucassilva.com.br/shopping?sku=20053';
+                    }
+                }}
             >
                 {isSoldOut ? 'ESGOTADO' : (buttonText || 'QUERO GARANTIR MEU LUGAR')}
             </button>
+
         </div>
     );
 };

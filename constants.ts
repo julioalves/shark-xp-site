@@ -45,6 +45,7 @@ export const galleryImages: GalleryImage[] = [
     { src: "/img/foto-shark-exp-4.jpg", alt: "Palestra no evento Shark Experience", className: "" },
     { src: "/img/foto-shark-exp-6.jpg", alt: "Networking no evento Shark Experience", className: "" },
     { src: "/img/foto-shark-exp-7.jpg", alt: "Momento especial do evento Shark Experience", className: "" },
+    { src: "/img/foto-shark-exp-8.jpg", alt: "Lucas Silva no Shark Experience", className: "" },
 ];
 
 export const speakers: Speaker[] = [
