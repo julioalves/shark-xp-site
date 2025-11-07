@@ -9,7 +9,7 @@ interface GalleryProps {
 
 const Gallery: React.FC<GalleryProps> = ({ onImageClick }) => {
     return (
-        <section className="flex flex-col gap-10 px-4 py-16 sm:py-24" id="gallery">
+        <section className="flex flex-col gap-6 px-4 py-4 sm:py-12" id="gallery">
             <div className="flex flex-col gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">Momentos Inesquecíveis</h2>
                 <p className="mx-auto max-w-3xl text-base font-normal leading-normal text-secondary-300">

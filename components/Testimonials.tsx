@@ -4,7 +4,7 @@ import { testimonials } from '../constants';
 
 const Testimonials: React.FC = () => {
     return (
-        <section className="flex flex-col gap-8 px-4 py-16 sm:py-24" id="testimonials">
+        <section className="flex flex-col gap-6 px-4 py-8 sm:py-12" id="testimonials">
             <h2 className="text-center text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">O Que Nossos Participantes Dizem</h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {testimonials.map((testimonial, index) => (

@@ -19,7 +19,7 @@ const FaqItemComponent: React.FC<FaqItem> = ({ question, answer, defaultOpen = f
 
 const FaqSection: React.FC = () => {
     return (
-        <section className="flex flex-col gap-8 px-4 py-16 sm:py-24" id="faq">
+        <section className="flex flex-col gap-6 px-4 py-4 sm:py-12" id="faq">
             <h2 className="text-center text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">Ainda tem dúvidas?</h2>
             <div className="mx-auto w-full max-w-3xl space-y-4">
                 {faqItems.map((item, index) => (

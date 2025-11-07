@@ -106,7 +106,7 @@ interface PricingProps {
 
 const Pricing: React.FC<PricingProps> = ({ eventDate }) => {
     return (
-        <section className="flex flex-col gap-8 px-4 py-16 sm:py-24" id="pricing">
+        <section className="flex flex-col gap-6 px-4 py-8 sm:py-12" id="pricing">
             <div className="text-center">
                 <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">Garanta Seu Lugar no Próximo Nível</h2>
                 <p className="mx-auto mt-2 max-w-2xl text-base font-normal leading-normal text-secondary-300">O último lote de ingressos está disponível por tempo limitado. Garanta sua vaga antes que esgote!</p>

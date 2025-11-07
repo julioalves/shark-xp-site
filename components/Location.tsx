@@ -2,7 +2,7 @@ import React from 'react';
 
 const Location: React.FC = () => {
     return (
-        <section className="flex flex-col gap-10 px-4 py-16 sm:py-24" id="location">
+        <section className="flex flex-col gap-6 px-4 py-4 sm:py-12" id="location">
             <div className="flex flex-col items-center gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">
                     Um Local à Altura do Evento

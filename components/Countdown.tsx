@@ -45,8 +45,8 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     }
 
     return (
-        <div className="-mt-16 mb-16 relative z-20 countdown-enter">
-            <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center bg-secondary-950/80 border border-primary-800 rounded-xl p-6 backdrop-blur-sm">
+        <div className="-mt-16 mb-2 relative z-20 countdown-enter">
+            <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2 text-center bg-secondary-950/80 border border-primary-800 rounded-xl p-6 backdrop-blur-sm">
                 <div className="flex flex-col">
                     <span className="text-4xl font-black text-primary-400">{String(timeLeft.days).padStart(2, '0')}</span>
                     <span className="text-sm uppercase text-secondary-300">Dias</span>

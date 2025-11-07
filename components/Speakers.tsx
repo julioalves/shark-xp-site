@@ -4,7 +4,7 @@ import { speakers } from '../constants';
 
 const Speakers: React.FC = () => {
     return (
-        <section className="flex flex-col gap-12 px-4 py-16 sm:py-24" id="speakers">
+        <section className="flex flex-col gap-6 px-4 py-4 sm:py-12" id="speakers">
             <div className="text-center">
                 <h2 className="text-3xl font-bold leading-tight tracking-[-0.015em] text-white sm:text-4xl">Conheça os Especialistas que Vão Guiar sua Jornada</h2>
                  <p className="mx-auto mt-2 max-w-2xl text-base font-normal leading-normal text-secondary-300">Aprenda com quem vive o campo de batalha do mercado financeiro e já trilhou o caminho do sucesso que você busca.</p>
