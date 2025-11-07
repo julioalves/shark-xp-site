@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                 >
-                    <source src="/VIDEO SHARK EXPERIENCE 2024 - PARA LP.mp4" type="video/mp4" />
+                    <source src="/video-shark-xp-2024.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
