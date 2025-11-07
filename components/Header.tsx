@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from '../types';
 import Logo from './Logo';
+import { useActiveSection, scrollToSection } from '../hooks/useActiveSection';
 
 interface HeaderProps {
     navLinks: NavLink[];
@@ -9,20 +10,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ navLinks, onMenuToggle }) => {
+    const activeSection = useActiveSection();
+
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            const headerElement = document.querySelector('header');
-            const headerHeight = headerElement ? headerElement.offsetHeight : 0;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
+        scrollToSection(href);
     };
 
     return (
@@ -33,7 +25,11 @@ const Header: React.FC<HeaderProps> = ({ navLinks, onMenuToggle }) => {
                     {navLinks.map((link) => (
                         <a 
                             key={link.href} 
-                            className="text-sm font-medium leading-normal text-secondary-200 transition-colors hover:text-primary-400 cursor-pointer" 
+                            className={`text-sm font-medium leading-normal transition-colors cursor-pointer ${
+                                activeSection === link.href.substring(1)
+                                ? 'text-primary-400'
+                                : 'text-secondary-200 hover:text-primary-400'
+                            }`}
                             href={link.href}
                             onClick={(e) => handleNavClick(e, link.href)}
                         >
