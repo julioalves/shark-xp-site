@@ -96,8 +96,7 @@ export const pricingPlans: PricingPlan[] = [
             "Assento garantido em setor premium",
             "Kit de boas-vindas exclusivo",
             "Certificado de participação digital",
-            "Acesso ao lounge de networking",
-            "Entrada para o círculo VIP de networking"
+            "Acesso ao lounge de networking"
         ],
         isPopular: true,
         buttonText: "QUERO ME TORNAR UM TUBARÃO",
