@@ -6,12 +6,13 @@ const Footer: React.FC = () => {
         <footer className="border-t border-solid border-secondary-900 bg-background-dark py-12">
             <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-8 px-4 sm:px-10 md:flex-row">
                 <div className="flex items-center gap-4 text-white">
-                    <div className="size-5 text-primary-500">
-                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path clipRule="evenodd" d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor" fillRule="evenodd"></path>
-                        </svg>
+                    <div className="flex items-center gap-4">
+                        <img
+                            src="/img/logo-shark-exp-2025-site.png"
+                            alt="Logo"
+                            className="h-10 w-auto"
+                        />
                     </div>
-                    <h2 className="text-lg font-bold">Shark Experience</h2>
                 </div>
                 <div className="text-center text-sm text-secondary-400">© 2025 Shark Experience. Todos os direitos reservados.</div>
                 <div className="flex items-center gap-4">
