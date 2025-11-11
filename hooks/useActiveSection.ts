@@ -30,7 +30,11 @@ export const useActiveSection = () => {
 };
 
 export const scrollToSection = (href: string) => {
-    const targetId = href.replace('/', '');
+    // Remove "/" e "#" do início
+    let targetId = href.replace(/^[#/]+/, '');
+    
+    console.log('scrollToSection chamado com:', href, 'ID final:', targetId);
+    
     const targetElement = document.getElementById(targetId);
     
     if (targetElement) {
@@ -61,5 +65,7 @@ export const scrollToSection = (href: string) => {
         }
 
         requestAnimationFrame(animate);
+    } else {
+        console.warn('Elemento com ID não encontrado:', targetId);
     }
 };

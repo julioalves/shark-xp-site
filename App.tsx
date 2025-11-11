@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -16,6 +16,7 @@ import ImageModal from './components/ImageModal';
 import VideoModal from './components/VideoModal';
 import { navLinks } from './constants';
 import { GalleryImage } from './types';
+import { scrollToSection } from './hooks/useActiveSection';
 
 const App: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,6 +35,43 @@ const App: React.FC = () => {
     }, []);
 
     const eventDate = "2025-11-29T09:00:00";
+
+    // Detecta hash na URL e rola para a seção correspondente
+    useEffect(() => {
+        const handleHashScroll = () => {
+            if (window.location.hash) {
+                const sectionId = window.location.hash;
+                console.log('Hash detectado:', sectionId);
+                
+                // Tenta múltiplas vezes com delays progressivos
+                const attempts = [500, 1000, 1500, 2000];
+                
+                attempts.forEach((delay, index) => {
+                    setTimeout(() => {
+                        const targetId = sectionId.replace(/^[#/]+/, '');
+                        const element = document.getElementById(targetId);
+                        
+                        if (element) {
+                            console.log('Elemento encontrado na tentativa', index + 1);
+                            scrollToSection(sectionId);
+                        } else {
+                            console.log('Tentativa', index + 1, '- elemento não encontrado ainda');
+                        }
+                    }, delay);
+                });
+            }
+        };
+
+        // Roda ao montar o componente
+        handleHashScroll();
+
+        // Também monitora mudanças de hash (quando usuário clica em links internos)
+        window.addEventListener('hashchange', handleHashScroll);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashScroll);
+        };
+    }, []);
 
     return (
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
