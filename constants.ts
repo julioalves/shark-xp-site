@@ -90,7 +90,7 @@ export const speakers: Speaker[] = [
 export const pricingPlans: PricingPlan[] = [
     {
         name: "INGRESSO SHARK",
-        price: "R$ 497",
+        price: "R$ 197",
         features: [
             "Acesso completo ao evento presencial",
             "Assento garantido em setor premium",
