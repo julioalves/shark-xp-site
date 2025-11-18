@@ -136,4 +136,13 @@ export const faqItems: FaqItem[] = [
         question: "Posso parcelar o valor do ingresso?",
         answer: "Sim! Você pode parcelar sua inscrição em até 12x no cartão de crédito. Também aceitamos PIX como forma de pagamento.",
     },
+    {
+        question: "O evento será gravado?",
+        answer: "Não! O evento será presencial e não haverá gravação disponível posteriormente.",
+    },
+    {
+        question: "Haverá atividades pós palestras?",
+        answer: "Sim! Teremos happy hour exclusivo para networking e troca de experiências. É uma oportunidade única para ampliar sua rede de contatos no mercado financeiro.",
+    },
+
 ];
