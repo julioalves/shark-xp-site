@@ -15,7 +15,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
             const event = new Date(eventDate);
 
             const selloutDate = new Date(event);
-            selloutDate.setDate(event.getDate() - 3);
+            selloutDate.setDate(event.getDate() - 1);
 
             const salesStartDate = new Date(event);
             salesStartDate.setDate(event.getDate() - 90);
