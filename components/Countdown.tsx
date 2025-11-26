@@ -64,6 +64,9 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
                     <span className="text-sm uppercase text-secondary-300">Segundos</span>
                 </div>
             </div>
+            <div className="text-center mt-4 text-secondary-300">
+                <p className="text-lg">Credenciamento <span className="font-bold text-primary-400">8h</span> | Início do Evento <span className="font-bold text-primary-400">9h</span></p>
+            </div>
         </div>
     );
 };
