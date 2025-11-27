@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 interface CountdownProps {
     targetDate: string;
+    onCountdownEnd: () => void;
 }
 
 interface TimeLeft {
@@ -12,7 +13,7 @@ interface TimeLeft {
     seconds: number;
 }
 
-const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
+const Countdown: React.FC<CountdownProps> = ({ targetDate, onCountdownEnd }) => {
     const calculateTimeLeft = (): TimeLeft | null => {
         const difference = +new Date(targetDate) - +new Date();
         if (difference > 0) {
@@ -30,11 +31,17 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setTimeLeft(calculateTimeLeft());
+            const newTimeLeft = calculateTimeLeft();
+            setTimeLeft(newTimeLeft);
+            if (!newTimeLeft) {
+                onCountdownEnd();
+                clearInterval(timer);
+            }
         }, 1000);
 
         return () => clearInterval(timer);
-    }, [targetDate]);
+    }, [targetDate, onCountdownEnd]);
+
 
     if (!timeLeft) {
         return (

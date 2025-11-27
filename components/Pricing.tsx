@@ -4,9 +4,10 @@ import { PricingPlan } from '../types';
 
 interface PricingCardProps extends PricingPlan {
     eventDate: string;
+    isSoldOut: boolean;
 }
 
-const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, buttonText, eventDate }) => {
+const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, buttonText, eventDate, isSoldOut: isSoldOutFromParent }) => {
     const [spotsSold, setSpotsSold] = useState(15);
 
     useEffect(() => {
@@ -49,13 +50,15 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
 
     }, [eventDate]);
 
-    const isSoldOut = spotsSold >= 100;
+    const isSoldOut = spotsSold >= 100 || isSoldOutFromParent;
+    const progressBarWidth = isSoldOut ? 100 : spotsSold;
 
     const cardClasses = "relative flex flex-col rounded-xl border-2 border-primary-500 bg-secondary-950 p-8 shadow-2xl shadow-primary-900/50";
 
     const buttonClasses = "mt-8 w-full rounded-full bg-primary-600 py-3 font-bold text-white transition-transform hover:scale-105";
 
     const disabledButtonClasses = "mt-8 w-full rounded-full bg-secondary-800 py-3 font-bold text-secondary-500 cursor-not-allowed";
+
 
     return (
         <div className={cardClasses}>
@@ -66,12 +69,16 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
             </div>
 
             <div className="my-6 text-center">
-                <p className="animate-pulse font-semibold text-primary-400 mb-1">ÚLTIMAS VAGAS!</p>
-                <p className="font-bold text-red-400 uppercase tracking-wider">Mais de {Math.floor(spotsSold)}% preenchido!</p>
-                <div className="w-full bg-secondary-800 rounded-full h-2.5 mt-2 overflow-hidden" role="progressbar" aria-valuenow={spotsSold} aria-valuemin={0} aria-valuemax={100} aria-label="Vagas preenchidas">
+                <p className={`font-semibold text-primary-400 mb-1 ${!isSoldOut ? 'animate-pulse' : ''}`}>
+                    {isSoldOut ? 'LOTADO' : 'ÚLTIMAS VAGAS!'}
+                </p>
+                <p className="font-bold text-red-400 uppercase tracking-wider">
+                    {isSoldOut ? '100% preenchido!' : `Mais de ${Math.floor(spotsSold)}% preenchido!`}
+                </p>
+                <div className="w-full bg-secondary-800 rounded-full h-2.5 mt-2 overflow-hidden" role="progressbar" aria-valuenow={progressBarWidth} aria-valuemin={0} aria-valuemax={100} aria-label="Vagas preenchidas">
                     <div
                         className="bg-gradient-to-r from-red-500 to-orange-500 h-2.5 rounded-full transition-all duration-500 ease-out"
-                        style={{ width: `${spotsSold}%` }}
+                        style={{ width: `${progressBarWidth}%` }}
                     ></div>
                 </div>
             </div>
@@ -102,9 +109,10 @@ const PricingCard: React.FC<PricingCardProps> = ({ name, price, features, button
 
 interface PricingProps {
     eventDate: string;
+    isSoldOut: boolean;
 }
 
-const Pricing: React.FC<PricingProps> = ({ eventDate }) => {
+const Pricing: React.FC<PricingProps> = ({ eventDate, isSoldOut }) => {
     return (
         <section className="flex flex-col gap-6 px-4 py-8 sm:py-12" id="pricing">
             <div className="text-center">
@@ -114,7 +122,7 @@ const Pricing: React.FC<PricingProps> = ({ eventDate }) => {
             </div>
             <div className="grid grid-cols-1 gap-8 md:max-w-md mx-auto">
                 {pricingPlans.map((plan, index) => (
-                    <PricingCard key={index} {...plan} eventDate={eventDate} />
+                    <PricingCard key={index} {...plan} eventDate={eventDate} isSoldOut={isSoldOut} />
                 ))}
             </div>
         </section>

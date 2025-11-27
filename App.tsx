@@ -21,6 +21,12 @@ import { scrollToSection } from './hooks/useActiveSection';
 const App: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [modalContent, setModalContent] = useState<GalleryImage | null>(null);
+    const [isSoldOut, setIsSoldOut] = useState(true);
+
+    const handleCountdownEnd = useCallback(() => {
+        setIsSoldOut(true);
+    }, []);
+
 
     const toggleMenu = useCallback(() => {
         setIsMenuOpen(prev => !prev);
@@ -78,9 +84,9 @@ const App: React.FC = () => {
             <Header navLinks={navLinks} onMenuToggle={toggleMenu} />
             <MobileMenu navLinks={navLinks} isOpen={isMenuOpen} onClose={toggleMenu} />
             <main className="flex flex-col">
-                <Hero />
+                <Hero isSoldOut={isSoldOut} />
                 <div className="mx-auto flex w-full max-w-5xl flex-col px-4 sm:px-10">
-                    <Countdown targetDate={eventDate} />
+                    <Countdown targetDate={eventDate} onCountdownEnd={handleCountdownEnd} />
                     <div id="evento">
                         <About />
                     </div>
@@ -94,7 +100,7 @@ const App: React.FC = () => {
                         <Location />
                     </div>
                     <div id="ingressos">
-                        <Pricing eventDate={eventDate} />
+                        <Pricing eventDate={eventDate} isSoldOut={isSoldOut} />
                     </div >
                     <div id="depoimentos">
                         <Testimonials />
